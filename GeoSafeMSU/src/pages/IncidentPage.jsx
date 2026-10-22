@@ -133,7 +133,11 @@ function IncidentPage() {
         open={modalOpen}
         onCancel={() => setModalOpen(false)}
         footer={null}
+<<<<<<< Updated upstream
         width={960}
+=======
+        width={860}
+>>>>>>> Stashed changes
         destroyOnClose
       >
         <IncidentForm

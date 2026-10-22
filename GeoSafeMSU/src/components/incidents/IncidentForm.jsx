@@ -10,7 +10,11 @@ import {
   saveIncidentPersons,
 } from '../../services/api'
 import LocationPicker from '../map/LocationPicker'
+<<<<<<< Updated upstream
 import PersonListSection from './PersonListSection'
+=======
+import VictimsSuspectsSection from './VictimsSuspectsSection'
+>>>>>>> Stashed changes
 import { findZoneForPoint, pointInPolygon } from '../../utils/geo'
 
 const STATUS_OPTIONS = [
@@ -69,6 +73,10 @@ function IncidentForm({ initialValues = null, zones = [], crimeTypes = [], onSuc
       form.setFieldsValue({
         dateTime: dayjs(),
         incidentStatus: 'Pending',
+        victims: [],
+        suspects: [],
+        victimAttachments: [],
+        suspectAttachments: [],
         lat: MSU_CENTER.lat,
         lng: MSU_CENTER.lng,
         ...(defaultZone ? { locationID: defaultZone.locationID } : {}),
@@ -313,6 +321,7 @@ function IncidentForm({ initialValues = null, zones = [], crimeTypes = [], onSuc
         <Input.TextArea rows={4} placeholder="Describe the incident in detail…" />
       </Form.Item>
 
+<<<<<<< Updated upstream
       <Divider titlePlacement="start" style={{ marginTop: 8 }}>Persons Involved</Divider>
 
       {personsState === 'loading' && (
@@ -339,6 +348,13 @@ function IncidentForm({ initialValues = null, zones = [], crimeTypes = [], onSuc
       )}
 
       <Divider style={{ margin: '16px 0' }} />
+=======
+      <VictimsSuspectsSection />
+
+      <Form.Item label="Reporting Officer" name="reportingOfficer">
+        <Input disabled defaultValue={user?.name} placeholder={user?.name} />
+      </Form.Item>
+>>>>>>> Stashed changes
 
       <Form.Item style={{ marginBottom: 0, textAlign: 'right' }}>
         <Button onClick={onCancel} style={{ marginRight: 8 }}>Cancel</Button>
